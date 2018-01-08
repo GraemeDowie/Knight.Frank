@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\xunit.core.2.3.0\build\xunit.core.props" Condition="Exists('..\packages\xunit.core.2.3.0\build\xunit.core.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{21BD81AB-AD9D-4BF3-9E3B-95D0CF006B53}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KnightFrank.Blog.Tests.Regression</RootNamespace>
+    <AssemblyName>KnightFrank.Blog.Tests.Regression</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.8.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.8.1\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TechTalk.SpecFlow, Version=2.2.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpecFlow.2.2.1\lib\net45\TechTalk.SpecFlow.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver, Version=3.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.3.6.0\lib\net45\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Support, Version=3.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.3.6.0\lib\net45\WebDriver.Support.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.abstractions.2.0.1\lib\net35\xunit.abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.assert, Version=2.3.0.3820, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.assert.2.3.0\lib\netstandard1.1\xunit.assert.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.core, Version=2.3.0.3820, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.extensibility.core.2.3.0\lib\netstandard1.1\xunit.core.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.execution.desktop, Version=2.3.0.3820, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.extensibility.execution.2.3.0\lib\net452\xunit.execution.desktop.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bugs\Closed.Bugs.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Closed.Bugs.feature</DependentUpon>
+    </Compile>
+    <Compile Include="FeaturesCMS\ContactUsAtoZ.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContactUsAtoZ.feature</DependentUpon>
+    </Compile>
+    <Compile Include="FeaturesCMS\Admin.CMS.Sites.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Admin.CMS.Sites.feature</DependentUpon>
+    </Compile>
+    <Compile Include="FeaturesCMS\OfficePageNew.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OfficePageNew.feature</DependentUpon>
+    </Compile>
+    <Compile Include="FeaturesCMS\Russia\Knight.Frank.Russia.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Knight.Frank.Russia.feature</DependentUpon>
+    </Compile>
+    <Compile Include="FeaturesCMS\Video.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Video.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Model\adminCred.cs" />
+    <Compile Include="StepsCMS\AdminSitesAreWorkingAndAbleToLogInSteps.cs" />
+    <Compile Include="Model\AlphaLenght.cs" />
+    <Compile Include="StepsCMS\CMSNavigationSteps.cs" />
+    <Compile Include="FeaturesCMS\CMS.Filter.Options.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CMS.Filter.Options.feature</DependentUpon>
+    </Compile>
+    <Compile Include="FeaturesCMS\CMS.NavigationPresent.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CMS.NavigationPresent.feature</DependentUpon>
+    </Compile>
+    <Compile Include="StepsCMS\CMSFiltersAreCorrectSteps.cs" />
+    <Compile Include="FeaturesCMS\CMS.Residential.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CMS.Residential.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Admin.Blog.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Admin.Blog.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Admin.CMS.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Admin.CMS.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DistanceFilter.cs" />
+    <Compile Include="StepsCMS\KnightFrankRussiaWebsiteSteps.cs" />
+    <Compile Include="Model\leedsGlobalNav.cs" />
+    <Compile Include="Model\leedsImage.cs" />
+    <Compile Include="StepsCMS\locationSearch.cs" />
+    <Compile Include="Model\placeHolder.cs" />
+    <Compile Include="Model\myFK.cs" />
+    <Compile Include="StepsCMS\OfficePageNewSteps.cs" />
+    <Compile Include="Model\siteGreen.cs" />
+    <Compile Include="Model\PageTitle.cs" />
+    <Compile Include="Model\PagePara.cs" />
+    <Compile Include="StepsCMS\SearchTerm.cs" />
+    <Compile Include="Steps\AdminBlogSteps.cs" />
+    <Compile Include="Steps\AdminCMSSteps.cs" />
+    <Compile Include="Steps\BlogListing_DisplayPinnedListingSettingForBlogPostsSteps.cs" />
+    <Compile Include="Extensions\Extensions.cs" />
+    <Compile Include="FeaturesCMS\Domain.Default.Language.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Domain.Default.Language.feature</DependentUpon>
+    </Compile>
+    <Compile Include="FeaturesCMS\Property.search.using.prop.reference.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Property.search.using.prop.reference.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Blog Listing - Display Pinned listing setting for Blog Posts.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Blog Listing - Display Pinned listing setting for Blog Posts.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\User Story 64484 Blog Homepage - Search Enhancements.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>User Story 64484 Blog Homepage - Search Enhancements.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\User Story 66239 Blog - UI changes to article pages.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>User Story 66239 Blog - UI changes to article pages.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DomainSettings.cs" />
+    <Compile Include="Model\Property.cs" />
+    <Compile Include="StepsCMS\PropertySearchUsingPropertyReferenceSteps.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SeleniumHelper\SeleniumHelper.cs" />
+    <Compile Include="Model\BlogSearch.cs" />
+    <Compile Include="Model\UserDetails.cs" />
+    <Compile Include="StepsCMS\ContactUsAtoZSteps.cs" />
+    <Compile Include="Model\ChinaOffice.cs" />
+    <Compile Include="Steps\ClosedBugsSteps.cs" />
+    <Compile Include="Model\contactEmailButton.cs" />
+    <Compile Include="Model\KFChina.cs" />
+    <Compile Include="Model\ColleagueURL.cs" />
+    <Compile Include="Steps\ContactName.cs" />
+    <Compile Include="Steps\NewUserDetails.cs" />
+    <Compile Include="Model\tagDetails.cs" />
+    <Compile Include="Model\OfficeSearch.cs" />
+    <Compile Include="Model\ResearchURL.cs" />
+    <Compile Include="Model\OfficeSearchLocation.cs" />
+    <Compile Include="Model\ReturnedResult.cs" />
+    <Compile Include="Model\TeamPage.cs" />
+    <Compile Include="Steps\UserStory64484BlogHomepage_SearchEnhancementsSteps.cs" />
+    <Compile Include="Steps\UserStory66239Blog_UIChangesToArticlePagesSteps.cs" />
+    <Compile Include="StepsCMS\VideoForResidentialAndCommercialPlaySteps.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Bugs\Closed.Bugs.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Closed.Bugs.feature.cs</LastGenOutput>
+    </None>
+    <None Include="FeaturesCMS\ContactUsAtoZ.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ContactUsAtoZ.feature.cs</LastGenOutput>
+    </None>
+    <None Include="FeaturesCMS\Admin.CMS.Sites.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Admin.CMS.Sites.feature.cs</LastGenOutput>
+    </None>
+    <None Include="FeaturesCMS\CMS.Filter.Options.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CMS.Filter.Options.feature.cs</LastGenOutput>
+    </None>
+    <None Include="FeaturesCMS\CMS.NavigationPresent.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CMS.NavigationPresent.feature.cs</LastGenOutput>
+    </None>
+    <None Include="FeaturesCMS\CMS.Residential.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CMS.Residential.feature.cs</LastGenOutput>
+    </None>
+    <None Include="FeaturesCMS\Domain.Default.Language.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Domain.Default.Language.feature.cs</LastGenOutput>
+    </None>
+    <None Include="FeaturesCMS\OfficePageNew.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>OfficePageNew.feature.cs</LastGenOutput>
+    </None>
+    <None Include="FeaturesCMS\Property.search.using.prop.reference.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Property.search.using.prop.reference.feature.cs</LastGenOutput>
+    </None>
+    <None Include="FeaturesCMS\Video.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Video.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Admin.Blog.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Admin.Blog.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Admin.CMS.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Admin.CMS.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Blog Listing - Display Pinned listing setting for Blog Posts.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Blog Listing - Display Pinned listing setting for Blog Posts.feature.cs</LastGenOutput>
+    </None>
+    <None Include="FeaturesCMS\Russia\Knight.Frank.Russia.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Knight.Frank.Russia.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\User Story 64484 Blog Homepage - Search Enhancements.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>User Story 64484 Blog Homepage - Search Enhancements.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\User Story 66239 Blog - UI changes to article pages.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>User Story 66239 Blog - UI changes to article pages.feature.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\xunit.analyzers.0.7.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\xunit.core.2.3.0\build\xunit.core.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.core.2.3.0\build\xunit.core.props'))" />
+    <Error Condition="!Exists('..\packages\xunit.core.2.3.0\build\xunit.core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.core.2.3.0\build\xunit.core.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.Chrome.WebDriver.2.33\build\Selenium.Chrome.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.Chrome.WebDriver.2.33\build\Selenium.Chrome.WebDriver.targets'))" />
+  </Target>
+  <Import Project="..\packages\xunit.core.2.3.0\build\xunit.core.targets" Condition="Exists('..\packages\xunit.core.2.3.0\build\xunit.core.targets')" />
+  <Import Project="..\packages\Selenium.Chrome.WebDriver.2.33\build\Selenium.Chrome.WebDriver.targets" Condition="Exists('..\packages\Selenium.Chrome.WebDriver.2.33\build\Selenium.Chrome.WebDriver.targets')" />
+</Project>
