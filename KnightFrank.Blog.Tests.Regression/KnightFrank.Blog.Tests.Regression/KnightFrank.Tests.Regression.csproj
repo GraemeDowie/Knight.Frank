@@ -52,11 +52,11 @@
     <Reference Include="TechTalk.SpecFlow, Version=2.2.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
       <HintPath>..\packages\SpecFlow.2.2.1\lib\net45\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
-    <Reference Include="WebDriver, Version=3.6.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Selenium.WebDriver.3.6.0\lib\net45\WebDriver.dll</HintPath>
+    <Reference Include="WebDriver, Version=3.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.3.8.0\lib\net45\WebDriver.dll</HintPath>
     </Reference>
-    <Reference Include="WebDriver.Support, Version=3.6.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Selenium.Support.3.6.0\lib\net45\WebDriver.Support.dll</HintPath>
+    <Reference Include="WebDriver.Support, Version=3.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.3.8.0\lib\net45\WebDriver.Support.dll</HintPath>
     </Reference>
     <Reference Include="xunit.abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
       <HintPath>..\packages\xunit.abstractions.2.0.1\lib\net35\xunit.abstractions.dll</HintPath>
@@ -102,6 +102,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Video.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\Blog.Categories.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Blog.Categories.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Blog.Search.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Blog.Search.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Blog.SubCategories.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Blog.SubCategories.feature</DependentUpon>
+    </Compile>
     <Compile Include="Model\adminCred.cs" />
     <Compile Include="StepsCMS\AdminSitesAreWorkingAndAbleToLogInSteps.cs" />
     <Compile Include="Model\AlphaLenght.cs" />
@@ -146,6 +161,7 @@
     <Compile Include="StepsCMS\SearchTerm.cs" />
     <Compile Include="Steps\AdminBlogSteps.cs" />
     <Compile Include="Steps\AdminCMSSteps.cs" />
+    <Compile Include="Steps\BlogCategoriesSteps.cs" />
     <Compile Include="Steps\BlogListing_DisplayPinnedListingSettingForBlogPostsSteps.cs" />
     <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="FeaturesCMS\Domain.Default.Language.feature.cs">
@@ -168,11 +184,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>User Story 64484 Blog Homepage - Search Enhancements.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\User Story 66239 Blog - UI changes to article pages.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>User Story 66239 Blog - UI changes to article pages.feature</DependentUpon>
-    </Compile>
     <Compile Include="Model\DomainSettings.cs" />
     <Compile Include="Model\Property.cs" />
     <Compile Include="StepsCMS\PropertySearchUsingPropertyReferenceSteps.cs" />
@@ -182,11 +193,19 @@
     <Compile Include="Model\UserDetails.cs" />
     <Compile Include="StepsCMS\ContactUsAtoZSteps.cs" />
     <Compile Include="Model\ChinaOffice.cs" />
+    <Compile Include="Model\BlogSearchInput.cs" />
+    <Compile Include="Steps\BlogSearchSteps.cs" />
+    <Compile Include="Model\BlogWaterMark.cs" />
+    <Compile Include="Steps\BlogSub_CategoriesSteps.cs" />
     <Compile Include="Steps\ClosedBugsSteps.cs" />
     <Compile Include="Model\contactEmailButton.cs" />
     <Compile Include="Model\KFChina.cs" />
     <Compile Include="Model\ColleagueURL.cs" />
     <Compile Include="Steps\ContactName.cs" />
+    <Compile Include="Model\Home.cs" />
+    <Compile Include="Model\NewsBGColor.cs" />
+    <Compile Include="Model\LifestyleBGColor.cs" />
+    <Compile Include="Model\IntelligenceBGColor.cs" />
     <Compile Include="Steps\NewUserDetails.cs" />
     <Compile Include="Model\tagDetails.cs" />
     <Compile Include="Model\OfficeSearch.cs" />
@@ -194,8 +213,10 @@
     <Compile Include="Model\OfficeSearchLocation.cs" />
     <Compile Include="Model\ReturnedResult.cs" />
     <Compile Include="Model\TeamPage.cs" />
+    <Compile Include="Model\ServiceSearch.cs" />
+    <Compile Include="Model\ServiceResidential.cs" />
+    <Compile Include="Model\PropertyBGColor.cs" />
     <Compile Include="Steps\UserStory64484BlogHomepage_SearchEnhancementsSteps.cs" />
-    <Compile Include="Steps\UserStory66239Blog_UIChangesToArticlePagesSteps.cs" />
     <Compile Include="StepsCMS\VideoForResidentialAndCommercialPlaySteps.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -258,13 +279,21 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Knight.Frank.Russia.feature.cs</LastGenOutput>
     </None>
+    <None Include="Features\Blog.Categories.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Blog.Categories.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Blog.Search.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Blog.Search.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Blog.SubCategories.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Blog.SubCategories.feature.cs</LastGenOutput>
+    </None>
     <None Include="Features\User Story 64484 Blog Homepage - Search Enhancements.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>User Story 64484 Blog Homepage - Search Enhancements.feature.cs</LastGenOutput>
-    </None>
-    <None Include="Features\User Story 66239 Blog - UI changes to article pages.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>User Story 66239 Blog - UI changes to article pages.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -282,7 +311,11 @@
     <Error Condition="!Exists('..\packages\xunit.core.2.3.0\build\xunit.core.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.core.2.3.0\build\xunit.core.props'))" />
     <Error Condition="!Exists('..\packages\xunit.core.2.3.0\build\xunit.core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.core.2.3.0\build\xunit.core.targets'))" />
     <Error Condition="!Exists('..\packages\Selenium.Chrome.WebDriver.2.33\build\Selenium.Chrome.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.Chrome.WebDriver.2.33\build\Selenium.Chrome.WebDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.IEDriver.3.8.0\build\Selenium.WebDriver.IEDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.IEDriver.3.8.0\build\Selenium.WebDriver.IEDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.Firefox.WebDriver.0.19.1\build\Selenium.Firefox.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.Firefox.WebDriver.0.19.1\build\Selenium.Firefox.WebDriver.targets'))" />
   </Target>
   <Import Project="..\packages\xunit.core.2.3.0\build\xunit.core.targets" Condition="Exists('..\packages\xunit.core.2.3.0\build\xunit.core.targets')" />
   <Import Project="..\packages\Selenium.Chrome.WebDriver.2.33\build\Selenium.Chrome.WebDriver.targets" Condition="Exists('..\packages\Selenium.Chrome.WebDriver.2.33\build\Selenium.Chrome.WebDriver.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.IEDriver.3.8.0\build\Selenium.WebDriver.IEDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.IEDriver.3.8.0\build\Selenium.WebDriver.IEDriver.targets')" />
+  <Import Project="..\packages\Selenium.Firefox.WebDriver.0.19.1\build\Selenium.Firefox.WebDriver.targets" Condition="Exists('..\packages\Selenium.Firefox.WebDriver.0.19.1\build\Selenium.Firefox.WebDriver.targets')" />
 </Project>

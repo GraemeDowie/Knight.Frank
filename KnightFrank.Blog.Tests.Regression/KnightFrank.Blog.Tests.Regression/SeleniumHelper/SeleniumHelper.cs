@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Support.UI;
 using Xunit;
 using System;
@@ -38,6 +39,27 @@ namespace KnightFrank.Blog.Tests.Regression
                 }
                 return _webdriver;
             }
+        }
+
+        private static IWebDriver _iewebdriver;
+        public static IWebDriver IEWebDriver
+        {
+            get
+            {
+                if (_iewebdriver == null)
+                {
+                    _iewebdriver = new InternetExplorerDriver();
+                }
+                return IEWebDriver;
+            }
+        }
+
+        public static IWebDriver setUpHomeIE()
+        {
+            IEWebDriver.Url = "http://www.knightfrank.co.uk";
+            IEWebDriver.Manage().Window.Maximize();
+
+            return IEWebDriver;
         }
 
         public static IWebDriver SetUpDriver()
@@ -159,6 +181,7 @@ namespace KnightFrank.Blog.Tests.Regression
 
             Assert.Contains(searchTerm, searchResults);
         }
+
 
         public static void AllCategoriesTab()
         {
@@ -367,7 +390,7 @@ namespace KnightFrank.Blog.Tests.Regression
             var intelligencePost = WebDriver.FindElement(By.XPath("//div/div[1]/results/div/div[1]/a/div/div[3]")).GetCssValue("border-color");
             Assert.Equal("rgb(216, 194, 0)", intelligencePost);
         }
-        
+
         public static void LifestylePost()
         {
             WebDriverWait waitForThumb = new WebDriverWait(WebDriver, TimeSpan.FromSeconds(5));
@@ -444,6 +467,50 @@ namespace KnightFrank.Blog.Tests.Regression
 
             var clickOfficeToggle = SeleniumHelper.WebDriver.FindElement(By.Id("cpMain_ucc1_ctl00_liPeople"));
             clickOfficeToggle.Click();
+        }
+
+        public static void fullScreen()
+        {
+            SeleniumHelper.WebDriver.Manage().Window.Maximize();
+        }
+
+        public static void clickService()
+        {
+            var serviceTab = SeleniumHelper.WebDriver.FindElement(By.Id("cpMain_ucc1_ctl00_liTabServices"));
+            serviceTab.Click();
+        }
+
+        public static void clickPropertyNavigation()
+        {
+            var propertyNavigation = SeleniumHelper.WebDriver.FindElement(By.CssSelector("blog-nav > nav > ul > li.property > a"));
+            propertyNavigation.Click();
+        }
+
+        public static void clickSubNavigationBar()
+        {
+            WebDriverWait waitForNavBar = new WebDriverWait(SeleniumHelper.WebDriver, TimeSpan.FromSeconds(5));
+            waitForNavBar.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("#dropdownMenu1")));
+
+            var subNavBar = SeleniumHelper.WebDriver.FindElement(By.CssSelector("#dropdownMenu1"));
+            subNavBar.Click();
+        }
+
+        public static void clickNewsNavigation()
+        {
+            var newsCategory = SeleniumHelper.WebDriver.FindElement(By.CssSelector("blog-nav > nav > ul > li.news > a"));
+            newsCategory.Click();
+        }
+
+        public static void clickLifestyleNavigation()
+        {
+            var newsCategory = SeleniumHelper.WebDriver.FindElement(By.CssSelector("blog-nav > nav > ul > li.lifestyle > a"));
+            newsCategory.Click();
+        }
+
+        public static void clickIntelligenceNavigation()
+        {
+            var intelligenceCategory = SeleniumHelper.WebDriver.FindElement(By.CssSelector("blog-nav > nav > ul > li.intelligence > a"));
+            intelligenceCategory.Click();
         }
     }
 }

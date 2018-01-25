@@ -155,5 +155,67 @@ namespace KnightFrank.Blog.Tests.Regression.Steps
             Assert.Equal(nameOfContact.contactName, contactDetail.Text.Replace("\r\n", " "));
         }
 
+        [Given(@"User has conducted a services search from the Knight Frank Homepage")]
+        public void GivenUserHasConductedAServicesSearchFromTheKnightFrankHomepage(Table table)
+        {
+            SeleniumHelper.WebDriver.Url = "http://www.knightfrank.co.uk";
+            SeleniumHelper.fullScreen();
+
+            var pageURL = SeleniumHelper.WebDriver.Url;
+            Assert.Equal("http://www.knightfrank.co.uk/", pageURL);
+
+            SeleniumHelper.clickService();
+
+            var serviceText = table.CreateInstance<ServiceSearch>();
+
+            var enterService = SeleniumHelper.WebDriver.FindElement(By.Id("cpMain_ucc1_ctl00_txtServicesSearchBox"));
+            enterService.SendKeys(serviceText.serviceSearch);
+
+            WebDriverWait waitForAutoSuggest = new WebDriverWait(SeleniumHelper.WebDriver, TimeSpan.FromSeconds(5));
+            waitForAutoSuggest.Until(ExpectedConditions.ElementIsVisible(By.Id("ui-id-5")));
+
+            var clickAuto = SeleniumHelper.WebDriver.FindElement(By.Id("ui-id-5"));
+            clickAuto.Click();
+
+            WebDriverWait waitForNav = new WebDriverWait(SeleniumHelper.WebDriver, TimeSpan.FromSeconds(5));
+            waitForNav.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("#bs-example-navbar-collapse-1 > div > ul > li.active > a")));
+        }
+
+        [When(@"user selects Residential tab and searches for London")]
+        public void WhenUserSelectsResidentialTabAndSearchesForLondon(Table table)
+        {
+            var gcmURL = SeleniumHelper.WebDriver.Url;
+            Assert.Equal("http://www.knightfrank.co.uk/commercial/global-capital-markets", gcmURL);
+
+            SeleniumHelper.ResTabClick();
+
+            var searchText = table.CreateInstance<ServiceResidential>();
+
+            var enterResSearch = SeleniumHelper.WebDriver.FindElement(By.Id("cpMain_ucc1_ctl00_txtResidentialSearchBox"));
+            enterResSearch.SendKeys(searchText.resSearch);
+
+            WebDriverWait waitForNav = new WebDriverWait(SeleniumHelper.WebDriver, TimeSpan.FromSeconds(15));
+            waitForNav.Until(ExpectedConditions.ElementIsVisible(By.Id("ui-id-5")));
+
+            var selectLondon = SeleniumHelper.WebDriver.FindElement(By.Id("ui-id-5"));
+            selectLondon.Click();
+
+            SeleniumHelper.StartSearch();
+        }
+
+        [Then(@"user should be taken to search results for their search")]
+        public void ThenUserShouldBeTakenToSearchResultsForTheirSearch()
+        {
+            SeleniumHelper.WaitForMap();
+
+            var resultURL = SeleniumHelper.WebDriver.Url;
+            Assert.Equal("http://www.knightfrank.co.uk/properties/residential/for-sale/uk-greater-london-london/all-types/all-beds", resultURL);
+
+            var properties = SeleniumHelper.WebDriver.FindElements(By.CssSelector(".grid-view"));
+            Assert.Equal(18, properties.Count);
+
+            var resultText = SeleniumHelper.WebDriver.FindElement(By.CssSelector(".lead h1"));
+            Assert.Equal("Properties for sale in London", resultText.Text);
+        }
     }
 }

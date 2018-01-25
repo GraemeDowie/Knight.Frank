@@ -51,3 +51,17 @@ Scenario: Link to contact agent profile Url takes user to correct profile page
 	| colleagueURL                                                    | ContactName  |
 	| http://beta.knightfrank.com/contact#/people/andrew-sim-00000085 | Andrew Sim   |
 
+
+  #bug number 77852
+
+Scenario: user is on service line results page and makes a Residential search
+	Given User has conducted a services search from the Knight Frank Homepage
+	| serviceSearch          |
+	| Global Capital Markets |
+	When user selects Residential tab and searches for London
+	| resSearch |
+	| London    |
+	Then user should be taken to search results for their search
+
+
+

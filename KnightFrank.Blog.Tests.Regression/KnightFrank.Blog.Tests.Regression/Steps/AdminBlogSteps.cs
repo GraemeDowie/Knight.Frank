@@ -95,23 +95,23 @@ namespace KnightFrank.Blog.Tests.Regression
         [When(@"I select Posts from the Contents drop down press Add post")]
         public void WhenISelectPostsFromTheContentsDropDownPressAddPost()
         {
-            var clickContentsCreate = WebDriver.FindElement(By.ClassName("contents"));
+            var clickContentsCreate = SeleniumHelper.WebDriver.FindElement(By.ClassName("contents"));
             clickContentsCreate.Click();
 
             WebDriverWait waitForPost = new WebDriverWait(SeleniumHelper.WebDriver, TimeSpan.FromSeconds(5));
             waitForPost.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("#collapsePosts > ul > li:nth-child(1) > a")));
 
-            var selectPosts = WebDriver.FindElement(By.CssSelector("#collapsePosts > ul > li:nth-child(1) > a"));
+            var selectPosts = SeleniumHelper.WebDriver.FindElement(By.CssSelector("#collapsePosts > ul > li:nth-child(1) > a"));
             selectPosts.Click();
 
-            var addPost = WebDriver.FindElement(By.ClassName("create"));
+            var addPost = SeleniumHelper.WebDriver.FindElement(By.ClassName("create"));
             addPost.Click();
         }
 
         [Then(@"I should be on the Post Management Create page")]
         public void ThenIShouldBeOnThePostManagementCreatePage()
         {
-            var pmCreate = WebDriver.FindElement(By.CssSelector("div.dashboard-grid h4"));
+            var pmCreate = SeleniumHelper.WebDriver.FindElement(By.CssSelector("div.dashboard-grid h4"));
             string postCreate = pmCreate.Text;
             Assert.Equal("Posts Management - Create", postCreate);
         }
@@ -119,21 +119,21 @@ namespace KnightFrank.Blog.Tests.Regression
         [When(@"I enter a page title subtitle and content")]
         public void WhenIEnterAPageTitleSubtitleAndContent()
         {
-            var enterTitle = WebDriver.FindElement(By.Id("Title"));
+            var enterTitle = SeleniumHelper.WebDriver.FindElement(By.Id("Title"));
             enterTitle.SendKeys("Automated Test Post - This is for Test Purpose ONLY");
 
-            var enterSubtitle = WebDriver.FindElement(By.Id("SubTitle_ifr"));
+            var enterSubtitle = SeleniumHelper.WebDriver.FindElement(By.Id("SubTitle_ifr"));
             enterSubtitle.SendKeys(" Automated Test Post - This is for Test Purpose ONLY ");
 
-            var tinyMceBold = WebDriver.FindElement(By.Id("mceu_43"));
+            var tinyMceBold = SeleniumHelper.WebDriver.FindElement(By.Id("mceu_43"));
             tinyMceBold.Click();
 
             enterSubtitle.SendKeys(" Automated Test Post - This is for Test Purpose ONLY ");
 
-            var enterContent = WebDriver.FindElement(By.Id("Content_ifr"));
+            var enterContent = SeleniumHelper.WebDriver.FindElement(By.Id("Content_ifr"));
             enterContent.SendKeys(" Automated Test Post - This is for Test Purpose ONLY");
 
-            var tinyMceContentBold = WebDriver.FindElement(By.Id("mceu_4"));
+            var tinyMceContentBold = SeleniumHelper.WebDriver.FindElement(By.Id("mceu_4"));
             tinyMceContentBold.Click();
 
             enterContent.SendKeys(" Automated Test Post - This is for Test Purpose ONLY");
@@ -142,18 +142,18 @@ namespace KnightFrank.Blog.Tests.Regression
         [When(@"click create post button")]
         public void WhenClickCreatePostButton()
         {
-            var clickCreatePost = WebDriver.FindElement(By.XPath("//div[1]/div[4]/div/input"));
+            var clickCreatePost = SeleniumHelper.WebDriver.FindElement(By.XPath("//div[1]/div[4]/div/input"));
             clickCreatePost.Click();
         }
 
         [Then(@"I should see the post on the Post Management List")]
         public void ThenIShouldSeeThePostOnThePostManagementList()
         {
-            var postManagementList = WebDriver.FindElement(By.CssSelector("div.dashboard-grid h4"));
+            var postManagementList = SeleniumHelper.WebDriver.FindElement(By.CssSelector("div.dashboard-grid h4"));
             string pmlPage = postManagementList.Text;
             Assert.Equal("Posts Management - List", pmlPage);
 
-            var postVisible = WebDriver.FindElement(By.XPath("//div[2]/div/div/form/div[2]/div/table/tbody/tr[2]/td[2]/span"));
+            var postVisible = SeleniumHelper.WebDriver.FindElement(By.XPath("//div[2]/div/div/form/div[2]/div/table/tbody/tr[2]/td[2]/span"));
             string titleVisible = postVisible.Text;
             Assert.Equal("Automated Test Post - This is for Test Purpose ONLY", titleVisible);
         }
@@ -161,69 +161,69 @@ namespace KnightFrank.Blog.Tests.Regression
         [When(@"I click edit and Publishing detail button")]
         public void WhenIClickEditAndPublishingDetailButton()
         {
-            var editPostButton = WebDriver.FindElement(By.XPath("//div[2]/div/div/form/div[2]/div/table/tbody/tr[2]/td[5]/a[1]"));
+            var editPostButton = SeleniumHelper.WebDriver.FindElement(By.XPath("//div[2]/div/div/form/div[2]/div/table/tbody/tr[2]/td[5]/a[1]"));
             editPostButton.Click();
 
-            var selectPublishingDetail = WebDriver.FindElement(By.XPath("//span[2]"));
+            var selectPublishingDetail = SeleniumHelper.WebDriver.FindElement(By.XPath("//span[2]"));
             selectPublishingDetail.Click();
         }
 
         [When(@"I enter a main image and a thumbnail image")]
         public void WhenIEnterAMainImageAndAThumbnailImage()
         {
-            var enterMainImageFileName = WebDriver.FindElement(By.Id("mediaMain"));
+            var enterMainImageFileName = SeleniumHelper.WebDriver.FindElement(By.Id("mediaMain"));
             enterMainImageFileName.SendKeys("image");
 
-            WebDriverWait waitForMain = new WebDriverWait(WebDriver, TimeSpan.FromSeconds(5));
+            WebDriverWait waitForMain = new WebDriverWait(SeleniumHelper.WebDriver, TimeSpan.FromSeconds(5));
             waitForMain.Until(ExpectedConditions.ElementIsVisible(By.Id("ui-id-4")));
 
-            var selectMainImage = WebDriver.FindElement(By.Id("ui-id-11"));
+            var selectMainImage = SeleniumHelper.WebDriver.FindElement(By.Id("ui-id-11"));
             selectMainImage.Click();
 
-            var enterThumbImageFileName = WebDriver.FindElement(By.Id("mediaThumbnail"));
+            var enterThumbImageFileName = SeleniumHelper.WebDriver.FindElement(By.Id("mediaThumbnail"));
             enterThumbImageFileName.SendKeys("image");
 
-            WebDriverWait waitForThumb = new WebDriverWait(WebDriver, TimeSpan.FromSeconds(5));
+            WebDriverWait waitForThumb = new WebDriverWait(SeleniumHelper.WebDriver, TimeSpan.FromSeconds(5));
             waitForThumb.Until(ExpectedConditions.ElementIsVisible(By.Id("ui-id-5")));
 
-            var selectThumbnail = WebDriver.FindElement(By.Id("ui-id-14"));
+            var selectThumbnail = SeleniumHelper.WebDriver.FindElement(By.Id("ui-id-14"));
             selectThumbnail.Click();
         }
 
         [When(@"select a domain")]
         public void WhenSelectADomain()
         {
-            var checkboxUK = WebDriver.FindElement(By.Id("cb88edcf0e-4b0c-4445-a360-48a5cb48427b"));
+            var checkboxUK = SeleniumHelper.WebDriver.FindElement(By.Id("cb88edcf0e-4b0c-4445-a360-48a5cb48427b"));
             checkboxUK.Click();
         }
 
         [When(@"Select a category for the post")]
         public void WhenSelectACategoryForThePost()
         {
-            var categorySelect = WebDriver.FindElement(By.Id("node2e88b530-3b01-4bf4-b6db-a96680ac1075_anchor"));
+            var categorySelect = SeleniumHelper.WebDriver.FindElement(By.Id("node2e88b530-3b01-4bf4-b6db-a96680ac1075_anchor"));
             categorySelect.Click();
         }
 
         [When(@"enter a Tag name")]
         public void WhenEnterATagName()
         {
-            var enterTagText = WebDriver.FindElement(By.Id("TagAutocomplete"));
+            var enterTagText = SeleniumHelper.WebDriver.FindElement(By.Id("TagAutocomplete"));
             enterTagText.SendKeys("London");
 
-            var enterTag = WebDriver.FindElement(By.Id("addTag"));
+            var enterTag = SeleniumHelper.WebDriver.FindElement(By.Id("addTag"));
             enterTag.Click();
         }
 
         [When(@"and an author name")]
         public void WhenAndAnAuthorName()
         {
-            var enterAuthorName = WebDriver.FindElement(By.Id("AuthorAutocomplete"));
+            var enterAuthorName = SeleniumHelper.WebDriver.FindElement(By.Id("AuthorAutocomplete"));
             enterAuthorName.SendKeys("Graeme Dowie");
 
-            WebDriverWait waitForAuthor = new WebDriverWait(WebDriver, TimeSpan.FromSeconds(5));
+            WebDriverWait waitForAuthor = new WebDriverWait(SeleniumHelper.WebDriver, TimeSpan.FromSeconds(5));
             waitForAuthor.Until(ExpectedConditions.ElementIsVisible(By.ClassName("ui-menu-item")));
 
-            var clickAuthor = WebDriver.FindElement(By.ClassName("ui-menu-item-wrapper"));
+            var clickAuthor = SeleniumHelper.WebDriver.FindElement(By.ClassName("ui-menu-item-wrapper"));
             clickAuthor.Click();
         }
 
@@ -239,17 +239,17 @@ namespace KnightFrank.Blog.Tests.Regression
         [When(@"click on publish options button")]
         public void WhenClickOnPublishOptionsButton()
         {
-            var publishPost = WebDriver.FindElement(By.XPath("//div[2]/div[12]/div/input[1]"));
+            var publishPost = SeleniumHelper.WebDriver.FindElement(By.XPath("//div[2]/div[12]/div/input[1]"));
             publishPost.Click();
 
-            var backToPosts = WebDriver.FindElement(By.CssSelector(".page-status li a"));
+            var backToPosts = SeleniumHelper.WebDriver.FindElement(By.CssSelector(".page-status li a"));
             backToPosts.Click();
         }
 
         [Then(@"I should be on the post management list with completed post")]
         public void ThenIShouldBeOnThePostManagementListWithCompletedPost()
         {
-            var publishedPostVisible = WebDriver.FindElement(By.XPath("//div[2]/div/div/form/div[2]/div/table/tbody/tr[2]/td[2]/span"));
+            var publishedPostVisible = SeleniumHelper.WebDriver.FindElement(By.XPath("//div[2]/div/div/form/div[2]/div/table/tbody/tr[2]/td[2]/span"));
             string postName = publishedPostVisible.Text;
             Assert.Equal("Automated Test Post - This is for Test Purpose ONLY", postName);
         }

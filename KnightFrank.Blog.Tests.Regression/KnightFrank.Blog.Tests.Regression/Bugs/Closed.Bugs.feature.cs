@@ -177,6 +177,33 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("user is on service line results page and makes a Residential search")]
+        public virtual void UserIsOnServiceLineResultsPageAndMakesAResidentialSearch()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("user is on service line results page and makes a Residential search", ((string[])(null)));
+#line 57
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                        "serviceSearch"});
+            table9.AddRow(new string[] {
+                        "Global Capital Markets"});
+#line 58
+ testRunner.Given("User has conducted a services search from the Knight Frank Homepage", ((string)(null)), table9, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+                        "resSearch"});
+            table10.AddRow(new string[] {
+                        "London"});
+#line 61
+ testRunner.When("user selects Residential tab and searches for London", ((string)(null)), table10, "When ");
+#line 64
+ testRunner.Then("user should be taken to search results for their search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

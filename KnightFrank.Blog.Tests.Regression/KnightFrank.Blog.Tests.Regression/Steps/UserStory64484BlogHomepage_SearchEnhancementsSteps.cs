@@ -17,7 +17,7 @@ namespace KnightFrank.Blog.Tests.Regression.Steps
         [Given(@"user has visited the blog homepage")]
         public void GivenUserHasVisitedTheBlogHomepage()
         {
-            WebDriver = SeleniumHelper.SetUpDriver();
+            SeleniumHelper.SetUpDriver();
 
             SeleniumHelper.ValidateBlog();
         }
